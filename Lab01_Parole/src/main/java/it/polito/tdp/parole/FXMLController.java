@@ -50,6 +50,7 @@ public class FXMLController {
 
     @FXML
     void doReset(ActionEvent event) {
+    	words.reset();
     	this.txtResult.clear();
 
     }
