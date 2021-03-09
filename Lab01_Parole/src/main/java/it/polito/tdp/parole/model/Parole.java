@@ -23,4 +23,10 @@ public class Parole {
 		lista.removeAll(lista);
 	}
 
+	public void cancel(String s) {
+		for (String a: lista) {
+			if (s.equals(a))
+				lista.remove(a);
+		}
+	}
 }

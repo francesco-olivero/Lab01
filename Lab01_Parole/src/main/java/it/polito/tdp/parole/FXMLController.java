@@ -31,6 +31,9 @@ public class FXMLController {
 
     @FXML
     private Button btnReset;
+    
+    @FXML
+    private Button btnCancel;
 
     @FXML
     void doInsert(ActionEvent event) {
@@ -54,6 +57,21 @@ public class FXMLController {
     	this.txtResult.clear();
 
     }
+    
+    @FXML
+    void doCancel (ActionEvent event) {
+    	String can = this.txtResult.getSelectedText();
+    	words.cancel(can);
+    	this.txtResult.clear();
+		String out = "";
+		for (String s: words.getElenco()) {
+			out += s + "\n";
+		}
+		this.txtResult.setText(out);
+
+    }
+    
+    
 
     @FXML
     void initialize() {
@@ -61,6 +79,8 @@ public class FXMLController {
         assert btnInserisci != null : "fx:id=\"btnInserisci\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
+        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'Scene.fxml'.";
+
 
     }
 }
