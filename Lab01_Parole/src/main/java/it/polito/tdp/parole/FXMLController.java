@@ -35,6 +35,7 @@ public class FXMLController {
     @FXML
     void doInsert(ActionEvent event) {
     	String in = this.txtParola.getText();
+    	this.txtParola.clear();
     	if (!in.isEmpty()) {
     		words.addParola(in);
     		this.txtResult.clear();
@@ -49,6 +50,7 @@ public class FXMLController {
 
     @FXML
     void doReset(ActionEvent event) {
+    	this.txtResult.clear();
 
     }
 
