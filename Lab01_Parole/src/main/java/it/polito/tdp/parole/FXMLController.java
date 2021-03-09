@@ -22,6 +22,9 @@ public class FXMLController {
 
     @FXML
     private TextField txtParola;
+    
+    @FXML
+    private TextField txtTempo;
 
     @FXML
     private Button btnInserisci;
@@ -37,6 +40,7 @@ public class FXMLController {
 
     @FXML
     void doInsert(ActionEvent event) {
+    	double da = System.nanoTime();
     	String in = this.txtParola.getText();
     	this.txtParola.clear();
     	if (!in.isEmpty()) {
@@ -48,6 +52,9 @@ public class FXMLController {
     		}
     		this.txtResult.setText(out);
     	}
+    	double a = System.nanoTime();
+    	double time = a - da;
+    	this.txtTempo.setText(Double.toString(time));
 
     }
 
@@ -80,8 +87,7 @@ public class FXMLController {
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
         assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'Scene.fxml'.";
-
-
+        assert txtTempo != null : "fx:id=\"txtTempo\" was not injected: check your FXML file 'Scene.fxml'.";
     }
 }
 
