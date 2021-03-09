@@ -4,10 +4,11 @@ import java.util.*;
 
 public class Parole {
 	
-	LinkedList<String> lista;
+	List<String> lista;
 		
 	public Parole() {
-		lista = new LinkedList<String>();
+		//lista = new LinkedList<String>();
+		lista = new ArrayList<String>();
 	}
 	
 	public void addParola(String p) {

@@ -2,6 +2,7 @@ package it.polito.tdp.parole;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.math.*;
 
 import it.polito.tdp.parole.model.Parole;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class FXMLController {
 
     @FXML
     void doInsert(ActionEvent event) {
-    	double da = System.nanoTime();
+    	long da = System.nanoTime();
     	String in = this.txtParola.getText();
     	this.txtParola.clear();
     	if (!in.isEmpty()) {
@@ -52,21 +53,26 @@ public class FXMLController {
     		}
     		this.txtResult.setText(out);
     	}
-    	double a = System.nanoTime();
-    	double time = a - da;
+    	long a = System.nanoTime();
+    	double time = (double) (a - da)/(1e9);
     	this.txtTempo.setText(Double.toString(time));
 
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	long da = System.nanoTime();
     	words.reset();
     	this.txtResult.clear();
+    	long a = System.nanoTime();
+    	double time = (double) (a - da)/(1e9);
+    	this.txtTempo.setText(Double.toString(time));
 
     }
     
     @FXML
     void doCancel (ActionEvent event) {
+    	long daq = System.nanoTime();
     	String can = this.txtResult.getSelectedText();
     	words.cancel(can);
     	this.txtResult.clear();
@@ -75,6 +81,9 @@ public class FXMLController {
 			out += s + "\n";
 		}
 		this.txtResult.setText(out);
+		long aq = System.nanoTime();
+    	double time = (double) (aq - daq)/(1e9);
+    	this.txtTempo.setText(Double.toString(time));
 
     }
     
